@@ -2,7 +2,7 @@ import "./random.scss";
 
 import { useEffect, useState } from "react";
 import { fetchRandomQuote } from "../../api/fetchRandomQuote";
-import { ReactComponent as QuoteLogo } from "../../img/icons/quote-svgrepo-com.svg";
+import { ReactComponent as QuoteLogo } from "../../assets/img/icons/quote-icon.svg";
 
 const Random = () => {
   const [quote, setQuote] = useState({});

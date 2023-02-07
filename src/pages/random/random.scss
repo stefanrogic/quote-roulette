@@ -6,13 +6,12 @@
   align-items: center;
 
   background-color: #444444;
-  transition: 0.5s;
 
   .quote {
     position: relative;
     height: 150px;
     aspect-ratio: 1 / 1;
-    top: -310px;
+    top: -330px;
     z-index: 100;
     border-radius: 50%;
 
@@ -31,7 +30,7 @@
   .container {
     height: 500px;
     width: 800px;
-    padding: 60px;
+    padding: 80px;
     position: absolute;
     border-radius: 30px;
 
@@ -48,7 +47,7 @@
     .content {
       margin-top: auto;
       p {
-        font-size: 40px;
+        font-size: 30px;
         text-align: center;
         margin: 0;
 
