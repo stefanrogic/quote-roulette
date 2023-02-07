@@ -8,12 +8,16 @@ const Random = () => {
   const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  const newQuote = () => {
     fetchRandomQuote().then((q) => {
       setQuote(q);
       setIsLoading(false);
     });
-  }, [isLoading]);
+  };
+
+  useEffect(() => {
+    newQuote();
+  }, []);
 
   return (
     <div className="random">
@@ -21,6 +25,7 @@ const Random = () => {
         className="quote"
         onClick={() => {
           setIsLoading(true);
+          newQuote();
         }}
       >
         <QuoteLogo fill={"#ededed"} />
