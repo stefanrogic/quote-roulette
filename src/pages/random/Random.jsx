@@ -1,23 +1,15 @@
 import "./random.scss";
 
-import { useEffect, useState } from "react";
-import { fetchRandomQuote } from "../../api/fetchRandomQuote";
+import { useEffect } from "react";
 import { ReactComponent as QuoteLogo } from "../../assets/img/icons/quote-icon.svg";
+import { useGetRandomQuote } from "../../hooks/useGetRandomQuote";
 
 const Random = () => {
-  const [quote, setQuote] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  const newQuote = () => {
-    fetchRandomQuote().then((q) => {
-      setQuote(q);
-      setIsLoading(false);
-    });
-  };
+  const { quote, isLoading, newQuote, setIsLoading } = useGetRandomQuote();
 
   useEffect(() => {
     newQuote();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="random">
@@ -32,7 +24,10 @@ const Random = () => {
       </button>
       <div className="container">
         {isLoading ? (
-          <h1 style={{ position: "absolute", color: "#ededed" }}>Loading...</h1>
+          <span style={{ position: "absolute", color: "#ededed" }}>
+            <QuoteLogo fill={"#ededed"} />
+            LOADING
+          </span>
         ) : (
           <>
             <div className="content">
@@ -41,7 +36,7 @@ const Random = () => {
 
             <div className="author">
               <div className="line" />
-              <a href={`#${quote.authorSlug}`} style={{ flex: quote.author.length > 10 ? "4" : "2" }}>
+              <a href={`#${quote.authorSlug}`} style={{ flex: quote.author.length > 17 ? "4" : "2" }}>
                 <h1>{quote.author.toUpperCase()}</h1>
               </a>
 
