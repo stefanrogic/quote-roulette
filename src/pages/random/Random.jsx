@@ -41,15 +41,16 @@ const Random = () => {
 
             <div className="author">
               <div className="line" />
-
-              <h1 style={{ flex: quote.author.length > 15 ? "4" : "2" }}>{quote.author.toUpperCase()}</h1>
+              <a href={`#${quote.authorSlug}`} style={{ flex: quote.author.length > 10 ? "4" : "2" }}>
+                <h1>{quote.author.toUpperCase()}</h1>
+              </a>
 
               <div className="line" />
             </div>
 
             <div className="tags">
               {quote.tags.map((tag, key) => (
-                <a key={key} href="#">
+                <a key={key} href={`#${tag}`}>
                   #{tag}
                 </a>
               ))}

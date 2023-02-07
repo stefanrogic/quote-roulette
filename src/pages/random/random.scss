@@ -39,7 +39,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
 
     background-color: #171717;
     // box-shadow: 25px 25px #666666;
@@ -47,6 +46,7 @@
     .content {
       width: inherit;
       margin-top: auto;
+      margin-bottom: 30px;
 
       p {
         font-size: 30px;
@@ -70,11 +70,15 @@
         background-color: #ededed;
       }
 
-      h1 {
-        margin: 0;
-        text-align: center;
+      a {
+        text-decoration: none;
 
-        color: #ad1c40;
+        h1 {
+          margin: 0;
+          text-align: center;
+
+          color: #ad1c40;
+        }
       }
     }
 
