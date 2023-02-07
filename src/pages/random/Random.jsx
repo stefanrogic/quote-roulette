@@ -13,13 +13,18 @@ const Random = () => {
       setQuote(q);
       setIsLoading(false);
     });
-  }, []);
+  }, [isLoading]);
 
   return (
     <div className="random">
-      <div className="quote">
-        <QuoteLogo fill={"#171717"} />
-      </div>
+      <button
+        className="quote"
+        onClick={() => {
+          setIsLoading(true);
+        }}
+      >
+        <QuoteLogo fill={"#ededed"} />
+      </button>
       <div className="container">
         {isLoading ? (
           <h1 style={{ position: "absolute", color: "#ededed" }}>Loading...</h1>
@@ -32,7 +37,7 @@ const Random = () => {
             <div className="author">
               <div className="line" />
 
-              <h1>{quote.author.toUpperCase()}</h1>
+              <h1 style={{ flex: quote.author.length > 15 ? "4" : "2" }}>{quote.author.toUpperCase()}</h1>
 
               <div className="line" />
             </div>
