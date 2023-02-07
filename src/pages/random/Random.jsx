@@ -2,9 +2,10 @@ import "./random.scss";
 
 import { useEffect, useState } from "react";
 import { fetchRandomQuote } from "../../api/fetchRandomQuote";
+import { ReactComponent as QuoteLogo } from "../../img/icons/quote-svgrepo-com.svg";
 
 const Random = () => {
-  const [quote, setQuote] = useState();
+  const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,17 +17,36 @@ const Random = () => {
 
   return (
     <div className="random">
-      {isLoading ? (
-        <h1>loading</h1>
-      ) : (
-        <div className="container">
-          <h2>{quote.author}</h2>
-          <p>{quote.content}</p>
-          {quote.tags.map((tag, key) => (
-            <p key={key}>{tag}</p>
-          ))}
-        </div>
-      )}
+      <div className="quote">
+        <QuoteLogo fill={"#171717"} />
+      </div>
+      <div className="container">
+        {isLoading ? (
+          <h1 style={{ position: "absolute", color: "#ededed" }}>Loading...</h1>
+        ) : (
+          <>
+            <div className="content">
+              <p>"{quote.content}"</p>
+            </div>
+
+            <div className="author">
+              <div className="line" />
+
+              <h1>{quote.author.toUpperCase()}</h1>
+
+              <div className="line" />
+            </div>
+
+            <div className="tags">
+              {quote.tags.map((tag, key) => (
+                <a key={key} href="#">
+                  #{tag}
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
