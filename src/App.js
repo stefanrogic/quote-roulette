@@ -13,9 +13,9 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/random",
+      path: "/",
       element: <Layout />,
-      children: [{ path: "/random", element: <Random /> }],
+      children: [{ path: "/", element: <Random /> }],
     },
   ]);
 
