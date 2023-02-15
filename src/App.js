@@ -1,8 +1,16 @@
+import Nav from "./components/nav/Nav";
 import Random from "./pages/random/Random";
 
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Search from "./components/search/Search";
+import { useState } from "react";
+import { useGetRandomQuote } from "./hooks/useGetRandomQuote";
+
+// import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 function App() {
+  const [showSearch, setShowSearch] = useState(false);
+  const { quote, isLoading, newQuote, newAuthorQuote, setIsLoading } = useGetRandomQuote();
+
   // const Layout = () => {
   //   return (
   //     <div className="App">
@@ -21,9 +29,19 @@ function App() {
 
   // return <RouterProvider router={router}></RouterProvider>;
 
+  const showSearchModal = () => {
+    setShowSearch(true);
+  };
+
+  const hideSearchModal = () => {
+    setShowSearch(false);
+  };
+
   return (
     <div className="App">
-      <Random />
+      <Nav showModal={showSearchModal} />
+      {showSearch && <Search onHideModal={hideSearchModal} onSetIsLoading={setIsLoading} onNewAuthorQuote={newAuthorQuote} />}
+      <Random onQuote={quote} onIsLoading={isLoading} onSetIsLoading={setIsLoading} onNewQuote={newQuote} onNewAuthorQuote={newAuthorQuote} />
     </div>
   );
 }

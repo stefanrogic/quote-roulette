@@ -2,49 +2,45 @@ import "./random.scss";
 
 import { useEffect } from "react";
 import { ReactComponent as QuoteLogo } from "../../assets/img/icons/quote-icon.svg";
-import { useGetRandomQuote } from "../../hooks/useGetRandomQuote";
 
-const Random = () => {
-  const { quote, isLoading, newQuote, setIsLoading } = useGetRandomQuote();
-
-  useEffect(() => {
-    newQuote();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+const Random = ({ onQuote, onIsLoading, onNewQuote, onNewAuthorQuote, onSetIsLoading }) => {
+  useEffect(() => onNewQuote(), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="random">
       <button
         className="quote"
         onClick={() => {
-          setIsLoading(true);
-          newQuote();
+          onSetIsLoading(true);
+          onNewQuote();
         }}
       >
         <QuoteLogo fill={"#ededed"} />
       </button>
       <div className="container">
-        {isLoading ? (
-          <span style={{ position: "absolute", color: "#ededed" }}>
+        {onIsLoading ? (
+          <span>
             <QuoteLogo fill={"#ededed"} />
             LOADING
           </span>
         ) : (
           <>
             <div className="content">
-              <p>"{quote.content}"</p>
+              <p>"{onQuote.content}"</p>
             </div>
 
             <div className="author">
               <div className="line" />
-              <a href={`#${quote.authorSlug}`} style={{ flex: quote.author.length > 17 ? "4" : "2" }}>
-                <h1>{quote.author.toUpperCase()}</h1>
+
+              <a href={`#${onQuote.authorSlug}`}>
+                <h1 onClick={(e) => onNewAuthorQuote(e.target.textContent)}>{onQuote.author.toUpperCase()}</h1>
               </a>
 
               <div className="line" />
             </div>
 
             <div className="tags">
-              {quote.tags.map((tag, key) => (
+              {onQuote.tags.map((tag, key) => (
                 <a key={key} href={`#${tag}`}>
                   #{tag}
                 </a>

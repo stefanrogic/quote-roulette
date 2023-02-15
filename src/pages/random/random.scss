@@ -1,5 +1,5 @@
 .random {
-  height: 100vh;
+  height: 92vh;
 
   display: flex;
   justify-content: center;
@@ -46,6 +46,8 @@
     span {
       font-size: 30px;
       line-height: 20px;
+
+      color: #ededed;
     }
 
     .content {
@@ -79,6 +81,7 @@
         text-decoration: none;
 
         h1 {
+          padding: 0 20px;
           margin: 0;
           text-align: center;
 
