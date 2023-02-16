@@ -68,6 +68,11 @@
       padding: 80px 80px;
     }
 
+    @include xl {
+      width: 40vw;
+      padding: 80px 80px;
+    }
+
     span {
       font-size: 30px;
       line-height: 20px;
