@@ -6,7 +6,7 @@ body {
 }
 
 @mixin xs {
-  @media (max-width: 100px) {
+  @media (min-width: 100px) {
     @content;
   }
 }
@@ -36,7 +36,7 @@ body {
 }
 
 @mixin xxl {
-  @media (min-width: 1920px) {
+  @media (min-width: 2000px) {
     @content;
   }
 }

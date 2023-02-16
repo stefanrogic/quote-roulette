@@ -21,7 +21,7 @@
     border-radius: 50%;
     background-color: #ad1c40;
 
-    @include sm {
+    @include xs {
       height: 40px;
     }
 
@@ -43,10 +43,6 @@
     gap: 30px;
 
     @include xs {
-      display: none;
-    }
-
-    @include sm {
       display: none;
     }
 
