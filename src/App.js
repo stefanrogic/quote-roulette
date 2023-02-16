@@ -9,7 +9,7 @@ import { useGetRandomQuote } from "./hooks/useGetRandomQuote";
 
 function App() {
   const [showSearch, setShowSearch] = useState(false);
-  const { quote, isLoading, newQuote, newAuthorQuote, setIsLoading } = useGetRandomQuote();
+  const { quote, isLoading, newQuote, newAuthorQuote, setIsLoading, newCategoryQuote } = useGetRandomQuote();
 
   // const Layout = () => {
   //   return (
@@ -29,8 +29,8 @@ function App() {
 
   // return <RouterProvider router={router}></RouterProvider>;
 
-  const showSearchModal = () => {
-    setShowSearch(true);
+  const searchModalSwitch = () => {
+    setShowSearch((prev) => !prev);
   };
 
   const hideSearchModal = () => {
@@ -39,9 +39,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nav showModal={showSearchModal} />
+      <Nav switchModal={searchModalSwitch} />
       {showSearch && <Search onHideModal={hideSearchModal} onSetIsLoading={setIsLoading} onNewAuthorQuote={newAuthorQuote} />}
-      <Random onQuote={quote} onIsLoading={isLoading} onSetIsLoading={setIsLoading} onNewQuote={newQuote} onNewAuthorQuote={newAuthorQuote} />
+      <Random onQuote={quote} onIsLoading={isLoading} onSetIsLoading={setIsLoading} onNewQuote={newQuote} onNewAuthorQuote={newAuthorQuote} onNewCategoryQuote={newCategoryQuote} />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+@import "../../index.scss";
+
 .random {
   height: 92vh;
 
@@ -9,9 +11,8 @@
 
   .quote {
     position: relative;
-    height: 150px;
     aspect-ratio: 1 / 1;
-    top: -330px;
+
     z-index: 5;
     border-radius: 50%;
 
@@ -22,6 +23,16 @@
     border: none;
     background-color: #ad1c40;
 
+    @include sm {
+      top: -230px;
+      height: 50px;
+    }
+
+    @include md {
+      top: -330px;
+      height: 150px;
+    }
+
     svg {
       height: inherit;
       aspect-ratio: 1 / 1;
@@ -29,9 +40,6 @@
   }
 
   .container {
-    height: 500px;
-    width: 800px;
-    padding: 80px;
     position: absolute;
     border-radius: 30px;
 
@@ -42,6 +50,23 @@
 
     background-color: #171717;
     // box-shadow: 25px 25px #666666;
+
+    @include sm {
+      width: 80vw;
+      height: 400px;
+      padding: 80px 20px;
+    }
+
+    @include md {
+      width: 80vw;
+      padding: 80px 30px;
+      height: 500px;
+    }
+
+    @include lg {
+      width: 50vw;
+      padding: 80px 80px;
+    }
 
     span {
       font-size: 30px;
@@ -56,11 +81,23 @@
       margin-bottom: 30px;
 
       p {
-        font-size: 30px;
         text-align: center;
-        margin: 0;
 
         color: #ededed;
+
+        @include sm {
+          font-size: 20px;
+          margin: 0 20px;
+        }
+
+        @include md {
+          font-size: 25px;
+          margin: 0;
+        }
+
+        @include xl {
+          font-size: 30px;
+        }
       }
     }
 
@@ -69,12 +106,25 @@
 
       display: flex;
       flex-direction: row;
+      justify-content: center;
       align-items: center;
 
       .line {
         flex: 1;
         height: 1px;
         background-color: #ededed;
+
+        @include sm {
+          display: none;
+        }
+
+        @include md {
+          display: flex;
+        }
+
+        @include xl {
+          display: flex;
+        }
       }
 
       a {
@@ -86,22 +136,42 @@
           text-align: center;
 
           color: #ad1c40;
+
+          @include sm {
+            font-size: 20px;
+          }
+
+          @include md {
+            font-size: 25px;
+          }
+
+          @include xl {
+            font-size: 30px;
+          }
         }
       }
     }
 
     .tags {
       margin-top: auto;
-
+      font-size: 20px;
       display: flex;
-      flex-direction: row;
+
       justify-content: center;
       align-items: center;
-      gap: 20px;
+
+      @include sm {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      @include md {
+        flex-direction: row;
+        gap: 20px;
+      }
 
       a {
         text-decoration: none;
-        font-size: 20px;
         font-weight: 200;
 
         color: #ad1c40;

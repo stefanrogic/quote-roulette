@@ -1,3 +1,5 @@
+@import "../../index.scss";
+
 .nav {
   display: flex;
   // justify-content: space-between;
@@ -9,15 +11,23 @@
   background-color: #171717;
 
   .logo {
-    height: 50px;
     aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
+    margin-right: auto;
 
     cursor: pointer;
     border: none;
     border-radius: 50%;
     background-color: #ad1c40;
+
+    @include sm {
+      height: 40px;
+    }
+
+    @include md {
+      height: 50px;
+    }
 
     svg {
       height: inherit;
@@ -28,10 +38,21 @@
   ul {
     padding: 0;
     list-style: none;
-    display: flex;
+    // display: flex;
     flex-direction: row;
     gap: 30px;
-    margin-right: auto;
+
+    @include xs {
+      display: none;
+    }
+
+    @include sm {
+      display: none;
+    }
+
+    @include md {
+      display: flex;
+    }
 
     li {
       a {

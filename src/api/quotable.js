@@ -8,6 +8,10 @@ export const fetchRandomAuthorQuote = (author) => {
   return fetch(`${API_URL}/random?author=${author}`).then((res) => res.json());
 };
 
+export const fetchRandomCategoryQuote = (category) => {
+  return fetch(`${API_URL}/random?tags=${category}`).then((res) => res.json());
+};
+
 export const fetchAuthors = () => {
   return fetch(`${API_URL}/authors?limit=150`).then((res) => res.json());
 };

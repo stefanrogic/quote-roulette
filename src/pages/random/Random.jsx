@@ -3,7 +3,7 @@ import "./random.scss";
 import { useEffect } from "react";
 import { ReactComponent as QuoteLogo } from "../../assets/img/icons/quote-icon.svg";
 
-const Random = ({ onQuote, onIsLoading, onNewQuote, onNewAuthorQuote, onSetIsLoading }) => {
+const Random = ({ onQuote, onIsLoading, onNewQuote, onNewAuthorQuote, onSetIsLoading, onNewCategoryQuote }) => {
   useEffect(() => onNewQuote(), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -41,7 +41,7 @@ const Random = ({ onQuote, onIsLoading, onNewQuote, onNewAuthorQuote, onSetIsLoa
 
             <div className="tags">
               {onQuote.tags.map((tag, key) => (
-                <a key={key} href={`#${tag}`}>
+                <a key={key} href={`#${tag}`} onClick={(e) => onNewCategoryQuote(e.target.textContent.substring(1))}>
                   #{tag}
                 </a>
               ))}
