@@ -11,12 +11,12 @@ const Nav = ({ switchModal }) => {
       </a>
 
       <ul>
-        <li>
+        {/* <li>
           <a href="/authors">AUTHORS</a>
         </li>
         <li>
           <a href="/categories">CATEGORIES</a>
-        </li>
+        </li> */}
       </ul>
       <button onClick={switchModal}>
         <SearchIcon stroke="#ededed" />
