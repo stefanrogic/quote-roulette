@@ -2,7 +2,6 @@
 
 .nav {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   height: 8vh;
   padding: 0 15px;
@@ -38,7 +37,6 @@
   ul {
     padding: 0;
     list-style: none;
-    // display: flex;
     flex-direction: row;
     gap: 30px;
 

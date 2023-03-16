@@ -10,9 +10,8 @@
 }
 
 .search__box {
-  height: 700px;
   background-color: #171717;
-  // border-radius: 30px;
+  border-radius: 30px;
 
   position: absolute;
   margin-left: auto;
@@ -52,7 +51,7 @@
     font-size: 20px;
 
     border: none;
-    //   border-radius: 0 0 10px 10px;
+    border-radius: 30px;
 
     &:focus {
       outline: none;
@@ -62,12 +61,13 @@
   }
 
   .search__results {
-    height: 640px;
-    overflow: auto;
+    max-height: 640px;
+    overflow: hidden;
 
     ul {
       padding: 0;
       list-style: none;
+
       li {
         font-size: 20px;
         text-decoration: none;

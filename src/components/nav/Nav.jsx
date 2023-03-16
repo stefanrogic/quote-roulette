@@ -6,7 +6,7 @@ import { ReactComponent as SearchIcon } from "../../assets/img/icons/search-icon
 const Nav = ({ switchModal }) => {
   return (
     <div className="nav">
-      <a className="logo" href="/">
+      <a className="logo" href="#">
         <QuoteLogo fill={"#ededed"} />
       </a>
 
