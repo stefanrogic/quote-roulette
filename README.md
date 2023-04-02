@@ -1,3 +1,3 @@
 # Quote Roulette
 
-https://rasgrin.github.io/quote-roulette/
+https://quote-roulette.netlify.app/
