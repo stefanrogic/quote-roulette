@@ -1,42 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+$palette: (
+  highlight: #ad1c40,
+  windowBg: #171717,
+  bg: #444444,
+  text: #ededed,
+);
+
+@mixin mobile {
+  @media (min-width: 250px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+// CUSTOM
+@mixin rwd($screen) {
+  @media (min-width: $screen) {
+    @content;
+  }
+}
+
+:root {
+  font-family: "Poppins", sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  overflow-x: hidden;
+
+  color: map-get($palette, text);
+  background-color: map-get($palette, bg);
+}
+
 body {
   margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+input,
+textarea {
   font-family: "Poppins", sans-serif;
 }
 
-@mixin xs {
-  @media (min-width: 100px) {
-    @content;
-  }
-}
-
-@mixin sm {
-  @media (min-width: 350px) {
-    @content;
-  }
-}
-
-@mixin md {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-
-@mixin lg {
-  @media (min-width: 1250px) {
-    @content;
-  }
-}
-
-@mixin xl {
-  @media (min-width: 1600px) {
-    @content;
-  }
-}
-
-@mixin xxl {
-  @media (min-width: 2000px) {
-    @content;
-  }
+button {
+  cursor: pointer;
 }

@@ -1,80 +1,117 @@
 @import "../../index.scss";
 
 .random {
-  height: 92vh;
+  height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: #444444;
+  @include mobile {
+    padding: 0 20px;
+  }
 
-  .quote {
-    position: relative;
-    aspect-ratio: 1 / 1;
-
-    z-index: 5;
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-
-    cursor: pointer;
-    border: none;
-    background-color: #ad1c40;
-
-    @include xs {
-      top: -250px;
-      height: 80px;
-    }
-
-    @include md {
-      top: -330px;
-      height: 150px;
-    }
-
-    svg {
-      height: inherit;
-      aspect-ratio: 1 / 1;
-    }
+  @include rwd("821px") {
+    padding: 0;
   }
 
   .container {
-    position: absolute;
+    position: relative;
     border-radius: 30px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+
+    padding: 50px;
 
     background-color: #171717;
 
-    @include xs {
-      width: 80vw;
-      height: 350px;
-      padding: 80px 20px;
+    @include mobile {
+      width: 100%;
+      min-height: 50vh;
+      margin-top: 30px;
     }
 
-    @include md {
-      width: 80vw;
-      padding: 80px 30px;
-      height: 500px;
+    @include rwd("821px") {
+      width: 650px;
+      min-height: 450px;
+      margin-top: 0;
     }
 
-    @include lg {
-      width: 50vw;
-      padding: 80px 80px;
-    }
+    .top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
 
-    @include xl {
-      width: 40vw;
-      padding: 80px 80px;
-    }
+      .tip {
+        position: absolute;
+        top: -30px;
+        left: 460px;
 
-    @include xxl {
-      width: 30vw;
-      padding: 80px 80px;
+        z-index: 6;
+
+        padding: 0 20px;
+
+        background-color: white;
+        color: #171717;
+        border-radius: 30px;
+
+        cursor: pointer;
+
+        .arrow {
+          position: absolute;
+          top: 17px;
+          left: -8px;
+          width: 0;
+          height: 0;
+          border-top: 13px solid transparent;
+          border-bottom: 13px solid transparent;
+
+          border-right: 13px solid white;
+        }
+      }
+
+      .quote {
+        position: absolute;
+        left: 0;
+        right: 0;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        z-index: 5;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+        border: none;
+        background-color: #ad1c40;
+
+        @include mobile {
+          width: 100px;
+          height: 100px;
+          top: -50px;
+        }
+
+        @include tablet {
+          width: 130px;
+          height: 130px;
+          top: -65px;
+        }
+
+        svg {
+          height: 100px;
+          width: 100px;
+        }
+      }
     }
 
     span {
@@ -91,21 +128,19 @@
 
       p {
         text-align: center;
-
+        margin-bottom: 0;
         color: #ededed;
 
-        @include xs {
+        @include mobile {
           font-size: 20px;
-          margin: 0 20px;
         }
 
-        @include md {
-          font-size: 25px;
-          margin: 0;
-        }
-
-        @include xl {
+        @include tablet {
           font-size: 30px;
+        }
+
+        @include rwd("821px") {
+          font-size: 25px;
         }
       }
     }
@@ -123,16 +158,12 @@
         height: 1px;
         background-color: #ededed;
 
-        @include xs {
-          display: none;
+        @include mobile {
+          flex: 0;
         }
 
-        @include md {
-          display: flex;
-        }
-
-        @include xl {
-          display: flex;
+        @include tablet {
+          flex: 1;
         }
       }
 
@@ -146,15 +177,15 @@
 
           color: #ad1c40;
 
-          @include xs {
+          @include mobile {
             font-size: 20px;
           }
 
-          @include md {
-            font-size: 25px;
+          @include tablet {
+            font-size: 40px;
           }
 
-          @include xl {
+          @include rwd("821px") {
             font-size: 30px;
           }
         }
@@ -165,25 +196,14 @@
       margin-top: auto;
 
       display: flex;
-
+      gap: 20px;
       justify-content: center;
       align-items: center;
-
-      @include xs {
-        flex-direction: column;
-        font-size: 15px;
-        gap: 0;
-      }
-
-      @include md {
-        flex-direction: row;
-        font-size: 20px;
-        gap: 20px;
-      }
 
       a {
         text-decoration: none;
         font-weight: 200;
+        font-size: 20px;
 
         color: #ad1c40;
       }
