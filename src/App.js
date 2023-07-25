@@ -1,13 +1,23 @@
 import Random from "./pages/random/Random";
+import ExactQuote from "./pages/exactQuote/ExactQuote";
 
-import { useGetRandomQuote } from "./hooks/useGetRandomQuote";
+import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 
 function App() {
-  const { quote, isLoading, newQuote, newAuthorQuote, setIsLoading, newCategoryQuote } = useGetRandomQuote();
+  const Root = () => <Outlet />;
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Root />}>
+        <Route index element={<Random />} />
+        <Route path="/:id" element={<ExactQuote />} />
+      </Route>
+    )
+  );
 
   return (
     <div className="App">
-      <Random onQuote={quote} onIsLoading={isLoading} onSetIsLoading={setIsLoading} onNewQuote={newQuote} onNewAuthorQuote={newAuthorQuote} onNewCategoryQuote={newCategoryQuote} />
+      <RouterProvider router={router} />
     </div>
   );
 }

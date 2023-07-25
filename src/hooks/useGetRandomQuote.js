@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchRandomAuthorQuote, fetchRandomCategoryQuote, fetchRandomQuote } from "../api/quotable";
+import { fetchExactQuote, fetchRandomAuthorQuote, fetchRandomCategoryQuote, fetchRandomQuote } from "../api/quotable";
 
 export const useGetRandomQuote = () => {
   const [quote, setQuote] = useState();
@@ -29,5 +29,13 @@ export const useGetRandomQuote = () => {
       .then(() => setIsLoading(false));
   };
 
-  return { quote, isLoading, newQuote, newAuthorQuote, newCategoryQuote, setIsLoading };
+  const exactQuote = (id) => {
+    fetchExactQuote(id)
+      .then((q) => {
+        setQuote((prev) => (prev = q));
+      })
+      .then(() => setIsLoading(false));
+  };
+
+  return { quote, isLoading, newQuote, newAuthorQuote, newCategoryQuote, exactQuote, setIsLoading };
 };
