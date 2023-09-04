@@ -4,6 +4,7 @@
   height: 100vh;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -30,7 +31,6 @@
     background-color: #171717;
 
     @include mobile {
-      width: 100%;
       margin-top: 30px;
     }
 
@@ -172,9 +172,10 @@
         }
       }
 
-      h1 {
+      a {
         margin: 0;
         text-align: center;
+        font-weight: 700;
 
         color: #ad1c40;
 
@@ -234,35 +235,34 @@
         }
       }
     }
+  }
 
-    .share {
-      margin-top: 60px;
+  .share {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+
+    .link {
+      width: 40px;
+      height: 40px;
+
       display: flex;
+      justify-content: center;
+      align-items: center;
 
-      gap: 20px;
+      border-radius: 50%;
+    }
 
-      .link {
-        width: 40px;
-        height: 40px;
+    .link.twitter {
+      background-color: rgb(12, 162, 255);
+    }
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .link.facebook {
+      background-color: blue;
+    }
 
-        border-radius: 50%;
-      }
-
-      .link.twitter {
-        background-color: rgb(12, 162, 255);
-      }
-
-      .link.facebook {
-        background-color: blue;
-      }
-
-      .link.reddit {
-        background-color: orangered;
-      }
+    .link.reddit {
+      background-color: orangered;
     }
   }
 }

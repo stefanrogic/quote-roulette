@@ -1,20 +1,14 @@
 import { useState } from "react";
-import { fetchAuthors, fetchSearchedAuthors } from "../api/quotable";
+import { fetchHistoricalFigure } from "../api/historicalfigures";
 
 export const useGetSearchedAuthors = () => {
-  const [searchResults, setSearchResults] = useState();
+  const [author, setAuthor] = useState();
 
-  const getAllAuthors = () => {
-    fetchAuthors().then((q) => {
-      setSearchResults((prev) => (prev = q.results));
+  const getAuthor = (id) => {
+    fetchHistoricalFigure(id).then((a) => {
+      setAuthor((prev) => (prev = a[0]));
     });
   };
 
-  const getSearchedAuthors = (input) => {
-    fetchSearchedAuthors(input).then((q) => {
-      setSearchResults((prev) => (prev = q.results));
-    });
-  };
-
-  return { searchResults, setSearchResults, getAllAuthors, getSearchedAuthors };
+  return { author, setAuthor, getAuthor };
 };
